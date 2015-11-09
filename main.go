@@ -5,10 +5,11 @@ import (
 
 	"github.com/jchannon/FarGo/modules/tweets"
 	"github.com/zenazn/goji"
+	"github.com/zenazn/goji/web/middleware"
 )
 
 func main() {
-
+	goji.Use(middleware.EnvInit)
 	tweetmodule.New()
 
 	goji.Get("/hello", HomeHandler)
